@@ -5,13 +5,28 @@
     "jest": true,
     "node": true
   },
-  "parser": "babel-eslint",
-  "extends": ["airbnb", "prettier", "react-app", "plugin:prettier/recommended"],
+  "extends": [
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "airbnb",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "ignorePatterns": [
+    "node_modules",
+    "dist",
+    "built"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "tsconfig.json",
+    "sourceType": "module"
+  },
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
   },
-  "plugins": ["react", "prettier"],
+  "plugins": ["react", "prettier", "@typescript-eslint"],
   "rules": {
     "no-param-reassign": [
       "error",
@@ -19,14 +34,11 @@
         "props": true,
         "ignorePropertyModificationsFor": [
           "acc", // for reduce accumulators
-          "req", // for Express requests
-          "res", // for Express responses
           "draft" // for immer
         ]
       }
     ],
     "prettier/prettier": ["error"],
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "react/prop-types": 0,
     "spaced-comment": "warn",
     "react/sort-comp": [

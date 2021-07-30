@@ -9,6 +9,7 @@ yarn-error.log*
 # build output
 dist
 builds
+built
 
 # Runtime data
 pids
