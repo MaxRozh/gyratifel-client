@@ -2,25 +2,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-// import App from "./App";
-
-// eslint-disable-next-line react/jsx-filename-extension
-const App = () => <h1>My React and TypeScript App!</h1>;
+import App from './App';
 
 ReactDOM.render(<App />, document.getElementById('app'));
 
-/* eslint @typescript-eslint/no-unsafe-member-access: "off",
-          @typescript-eslint/no-unsafe-call: "off",
-          @typescript-eslint/no-unsafe-assignment: "off",
-          @typescript-eslint/no-var-requires: "off"
-*/
 // Hot Module Replacement
 declare let module: { hot: any };
 
 if (module.hot) {
   module.hot.accept('./App', () => {
-    // const NewApp = require('./App').default;
-    const NewApp = App;
+    // eslint-disable-next-line @typescript-eslint/no-var-requires,global-require
+    const NewApp = require('./App').default;
 
     ReactDOM.render(<NewApp />, document.getElementById('app'));
   });

@@ -1,4 +1,5 @@
 {
+  "parser": "@typescript-eslint/parser",
   "env": {
     "browser": true,
     "es6": true,
@@ -6,27 +7,24 @@
     "node": true
   },
   "extends": [
-    "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended-requiring-type-checking",
-    "airbnb",
     "plugin:react/recommended",
-    "plugin:prettier/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+    "airbnb"
   ],
   "ignorePatterns": [
     "node_modules",
     "dist",
     "built"
   ],
-  "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "project": "tsconfig.json",
     "sourceType": "module"
   },
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
   },
-  "plugins": ["react", "prettier", "@typescript-eslint"],
+  "plugins": ["@typescript-eslint", "react", "prettier"],
   "rules": {
     "no-param-reassign": [
       "error",
@@ -47,6 +45,16 @@
         "order": ["type-annotations", "static-methods", "lifecycle", "everything-else", "render"]
       }
     ],
-    "import/prefer-default-export": 0
+    "import/prefer-default-export": 0,
+    "import/extensions": 0,
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".tsx"] }],
+    "react/jsx-one-expression-per-line": 0,
+    "import/no-extraneous-dependencies": 0,
+    "import/no-unresolved": 0,
+    "object-curly-newline": 0,
+    "comma-dangle": ["error", "never"],
+    "max-len": ["error", {
+      "code": 120
+    }]
   }
 }

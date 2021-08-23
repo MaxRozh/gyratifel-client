@@ -1,24 +1,8 @@
-import * as React from "react";
-import { HashRouter } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import { ConfigProvider } from 'antd';
-import enUS from 'antd/es/locale/en_US';
-import {route} from "./routes";
-import { configureStore, initStore } from "./store/configStore";
+// eslint-disable-next-line no-use-before-define
+import React from 'react';
 
-const store = configureStore();
-store.dispatch<any>(initStore());
+import './App.css';
 
-class App extends React.Component<unknown, unknown> {
-  public render(): JSX.Element {
-    return (
-      <ConfigProvider locale={enUS}>
-        <Provider store={store}>
-          <HashRouter children={route} />
-        </Provider>
-      </ConfigProvider>
-    );
-  }
-}
+const App = () => <h1>My New App</h1>;
 
 export default App;

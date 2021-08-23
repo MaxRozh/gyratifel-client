@@ -1,25 +1,26 @@
 name: CI
 
-on: [push]
+on:
+  push:
+    branches: [develop, master]
+  pull_request:
+    types: [opened, synchronize, reopened]
 
 jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
     if: github.event.action != 'closed'
-    strategy:
-      matrix:
-        node_version: [14]
 
     steps:
       - uses: actions/checkout@v2
         with:
           ref: ${{ github.ref }}
 
-      - name: Use Node.js ${{ matrix.node_version }}
+      - name: Use Node.js 12.22.4
         uses: actions/setup-node@v1
         with:
-          node_version: ${{ matrix.node_version }}
+          node_version: '12.22.4'
 
       - name: yarn install
         run: yarn install --frozen-lockfile --link-duplicates --silent;
