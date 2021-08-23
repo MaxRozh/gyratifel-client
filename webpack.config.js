@@ -1,17 +1,15 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+
 const { resolve } = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const tsImportPluginFactory = require('ts-import-plugin');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = {
   mode: 'development',
   context: resolve(__dirname, 'src'),
-  entry: [
-    'webpack-dev-server/client?http://localhost:8080',
-    'webpack/hot/only-dev-server',
-    './index.tsx'
-  ],
+  entry: ['webpack-dev-server/client?http://localhost:8080', 'webpack/hot/only-dev-server', './index.tsx'],
   output: {
     filename: 'hotloader.js',
     path: resolve(__dirname, 'dist'),
@@ -19,7 +17,7 @@ module.exports = {
   },
   devtool: 'inline-source-map',
   resolve: {
-    extensions: [".ts", ".tsx", ".js", ".json"]
+    extensions: ['.ts', '.tsx', '.js', '.json']
   },
   devServer: {
     port: '8080',
@@ -28,54 +26,37 @@ module.exports = {
     quiet: false,
     contentBase: resolve(__dirname, 'src'),
     publicPath: '/',
-    open: true
+    open: false
   },
   module: {
     rules: [
       {
-        enforce: "pre",
+        enforce: 'pre',
         test: /\.(ts|tsx)?$/,
         use: 'eslint-loader',
-        exclude: [resolve(__dirname, "node_modules")],
+        exclude: [resolve(__dirname, 'node_modules')]
       },
       {
         test: /\.(ts|tsx)?$/,
-        use: [
-          {
-            loader: 'ts-loader',
-            options: {
-              transpileOnly: true,
-              getCustomTransformers: () => ({
-                before: [ tsImportPluginFactory({
-                  libraryName: 'antd',
-                  libraryDirectory: 'es',
-                  style: 'css',
-                }) ]
-              }),
-              compilerOptions: {
-                module: 'es2015'
-              }
-            },
-          },
-        ],
-        exclude: [resolve(__dirname, "node_modules")],
+        use: [{ loader: 'babel-loader' }, { loader: 'ts-loader' }],
+        exclude: [resolve(__dirname, 'node_modules')]
       },
-      { enforce: "pre", test: /\.js$/, use: "source-map-loader" },
+      { enforce: 'pre', test: /\.js$/, use: 'source-map-loader' },
       {
-        test:/\.css$/,
+        test: /\.css$/,
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
               hmr: true,
-              reloadAll: true,
-            },
+              reloadAll: true
+            }
           },
-          "css-loader"
+          'css-loader'
         ]
       },
-      { test: /\.png$/, use: "url-loader?limit=100000" },
-      { test: /\.jpg$/, use: "file-loader" },
+      { test: /\.png$/, use: 'url-loader?limit=100000' },
+      { test: /\.jpg$/, use: 'file-loader' },
       { test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/, use: 'url-loader?limit=10000&mimetype=application/font-woff' },
       { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, use: 'url-loader?limit=10000&mimetype=application/octet-stream' },
       { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, use: 'file-loader' },
@@ -84,11 +65,13 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "style.css",
-      chunkFilename: "[id].css"
+      filename: 'style.css',
+      chunkFilename: '[id].css'
+    }),
+    new ESLintPlugin({
+      extensions: ['js', 'jsx', 'ts', 'tsx']
     }),
     new webpack.HotModuleReplacementPlugin(),
-    // new webpack.NamedModulesPlugin(),
-    new HtmlWebpackPlugin({template: resolve(__dirname, 'src/index.html')}),
-  ],
+    new HtmlWebpackPlugin({ template: resolve(__dirname, 'src/index.html') })
+  ]
 };
