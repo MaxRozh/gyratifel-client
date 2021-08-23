@@ -19,7 +19,6 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '14'
-          cache: 'node_modules'
 
       - name: yarn install
         run: yarn install --frozen-lockfile --link-duplicates --silent;
