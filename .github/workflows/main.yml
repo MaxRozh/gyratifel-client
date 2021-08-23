@@ -1,0 +1,29 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    if: github.event.action != 'closed'
+    strategy:
+      matrix:
+        node_version: [14]
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.ref }}
+
+      - name: Use Node.js ${{ matrix.node_version }}
+        uses: actions/setup-node@v1
+        with:
+          node_version: ${{ matrix.node_version }}
+
+      - name: yarn install
+        run: yarn install --frozen-lockfile --link-duplicates --silent;
+      - name: yarn lint
+        run: yarn lint
+      - name: yarn test
+        run: yarn test:related
