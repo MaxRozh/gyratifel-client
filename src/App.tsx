@@ -1,8 +1,23 @@
-// eslint-disable-next-line no-use-before-define
 import React from 'react';
+import { Router, Route, Switch } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
 
-import './App.css';
+import SignInPage from 'pages/sign-in/SignInPage';
+import HomePage from 'pages/home/HomePage';
 
-const App = () => <h1>My New App GRT</h1>;
+import 'styles/normalize.css';
+
+const history = createBrowserHistory();
+
+const App = () => (
+  <Router history={history}>
+    <Switch>
+      <Route path="/sign-in" component={SignInPage} />
+      <Route path="/" component={HomePage} />
+      {/*<Route path="/404" component={NotFoundPage} />*/}
+      {/*<Redirect to="/404" />*/}
+    </Switch>
+  </Router>
+);
 
 export default App;

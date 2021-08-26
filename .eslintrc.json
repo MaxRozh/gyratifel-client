@@ -52,9 +52,12 @@
     "import/no-extraneous-dependencies": 0,
     "import/no-unresolved": 0,
     "object-curly-newline": 0,
+    "react/no-unescaped-entities": 0,
     "comma-dangle": ["error", "never"],
     "max-len": ["error", {
       "code": 120
-    }]
+    }],
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": ["error"]
   }
 }

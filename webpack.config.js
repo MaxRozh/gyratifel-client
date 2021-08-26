@@ -4,7 +4,6 @@ const { resolve } = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -17,6 +16,7 @@ module.exports = {
   },
   devtool: 'inline-source-map',
   resolve: {
+    modules: ['./src', 'node_modules'],
     extensions: ['.ts', '.tsx', '.js', '.json']
   },
   devServer: {
@@ -44,16 +44,7 @@ module.exports = {
       { enforce: 'pre', test: /\.js$/, use: 'source-map-loader' },
       {
         test: /\.css$/,
-        use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-            options: {
-              hmr: true,
-              reloadAll: true
-            }
-          },
-          'css-loader'
-        ]
+        use: [{ loader: MiniCssExtractPlugin.loader }, 'css-loader']
       },
       { test: /\.png$/, use: 'url-loader?limit=100000' },
       { test: /\.jpg$/, use: 'file-loader' },
@@ -68,10 +59,10 @@ module.exports = {
       filename: 'style.css',
       chunkFilename: '[id].css'
     }),
-    new ESLintPlugin({
-      extensions: ['js', 'jsx', 'ts', 'tsx']
-    }),
     new webpack.HotModuleReplacementPlugin(),
-    new HtmlWebpackPlugin({ template: resolve(__dirname, 'src/index.html') })
+    new HtmlWebpackPlugin({ template: resolve(__dirname, 'src/index.html') }),
+    new webpack.ProvidePlugin({
+      log: `${__dirname}/plugins/logger.js`
+    })
   ]
 };
