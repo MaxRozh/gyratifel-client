@@ -11,13 +11,13 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 
 import { useStyles } from './HeaderStyles';
 
 function Header() {
   const classes = useStyles();
-  const { t } = useTranslation();
+  const { t } = useTranslation(['common']);
   const [anchorEl, setAnchorEl] = React.useState<null | any>(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState<null | any>(null);
   const isMenuOpen = Boolean(anchorEl);

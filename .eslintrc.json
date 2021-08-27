@@ -7,10 +7,12 @@
     "node": true
   },
   "extends": [
+    "eslint:recommended",
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended",
-    "airbnb"
+    "airbnb",
+    "next"
   ],
   "ignorePatterns": [
     "node_modules",
@@ -24,7 +26,7 @@
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
   },
-  "plugins": ["@typescript-eslint", "react", "prettier"],
+  "plugins": ["@typescript-eslint", "react", "prettier", "redux-saga"],
   "rules": {
     "no-param-reassign": [
       "error",
@@ -58,6 +60,7 @@
       "code": 120
     }],
     "no-use-before-define": "off",
-    "@typescript-eslint/no-use-before-define": ["error"]
+    "@typescript-eslint/no-use-before-define": ["error"],
+    "@typescript-eslint/ban-ts-comment": 0
   }
 }

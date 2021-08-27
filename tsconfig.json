@@ -1,10 +1,12 @@
 {
   "compilerOptions": {
-    "outDir": "./built/",
     "module": "esnext",
-    "target": "ES2017",
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
     "sourceMap": true,
-    "jsx": "react",
+    "allowJs": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
     "moduleResolution": "node",
     "rootDir": "src",
     "noImplicitReturns": true,
@@ -16,14 +18,24 @@
     "baseUrl": "src",
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true
   },
   "include": [
-    "src/**/*",
+    "next-env.d.ts",
+    "graphql.d.ts",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.js",
     "@types"
   ],
   "exclude": [
     "node_modules",
-    "**/*.spec.ts"
+    "**/*.spec.ts",
+    ".next",
+    "_next",
+    "out"
   ]
 }
