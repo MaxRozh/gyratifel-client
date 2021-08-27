@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "outDir": "./built/",
-    "module": "es2015",
+    "module": "esnext",
     "target": "ES2017",
     "sourceMap": true,
     "jsx": "react",
@@ -14,10 +14,13 @@
     "noUnusedLocals": true,
     "allowSyntheticDefaultImports": true,
     "baseUrl": "src",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true
   },
   "include": [
-    "src/**/*"
+    "src/**/*",
+    "@types"
   ],
   "exclude": [
     "node_modules",

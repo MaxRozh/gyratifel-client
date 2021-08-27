@@ -11,11 +11,13 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import { useTranslation } from 'react-i18next';
 
 import { useStyles } from './HeaderStyles';
 
 function Header() {
   const classes = useStyles();
+  const { t } = useTranslation();
   const [anchorEl, setAnchorEl] = React.useState<null | any>(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState<null | any>(null);
   const isMenuOpen = Boolean(anchorEl);
@@ -62,7 +64,7 @@ function Header() {
             <MailIcon />
           </Badge>
         </IconButton>
-        <p>Messages</p>
+        <p>{t('messages')}</p>
       </MenuItem>
       <MenuItem>
         <IconButton aria-label="show 11 new notifications" color="inherit">
@@ -70,7 +72,7 @@ function Header() {
             <NotificationsIcon />
           </Badge>
         </IconButton>
-        <p>Notifications</p>
+        <p>{t('notifications')}</p>
       </MenuItem>
       {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
       {/* @ts-ignore */}
