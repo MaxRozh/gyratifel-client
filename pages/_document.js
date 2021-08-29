@@ -1,20 +1,16 @@
 import React from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheets } from '@material-ui/core/styles';
+import { i18n } from 'next-i18next';
 
 import theme from 'styles/theme';
 
 // import Favicons from 'components/favicons/Favicons';
 
 class MyDocument extends Document {
-  static async getInitialProps(ctx) {
-    const initialProps = await Document.getInitialProps(ctx);
-    return { ...initialProps };
-  }
-
   render() {
     return (
-      <Html lang="en">
+      <Html lang={i18n.language}>
         <Head>
           <meta charSet="utf-8" />
           <meta content="ie=edge" httpEquiv="x-ua-compatible" />

@@ -56,7 +56,8 @@ const nextConfig = {
 const SentryWebpackPluginOptions = {
   project: process.env.SENTRY_PROJECT,
   ignore: ['node_modules'],
-  configFile: 'sentry.properties'
+  configFile: 'sentry.properties',
+  silent: true
 };
 
 module.exports = withSentryConfig(withPWA(withBundleAnalyzer(nextConfig)), SentryWebpackPluginOptions);
