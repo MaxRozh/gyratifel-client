@@ -13,7 +13,7 @@ function Layout({ children }: PropsType) {
     <>
       <Header />
       <PageLoadingIndicator />
-      {children}
+      <div style={{ minHeight: 'calc(100vh - 239px)' }}>{children}</div>
       <Footer />
     </>
   );

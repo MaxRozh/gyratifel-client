@@ -8,7 +8,6 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
 // import MetaTags from 'components/meta-tags/MetaTags';
-// import PageLoadingIndicator from 'components/page-loading-indicator/PageLoadingIndicator';
 import Layout from 'components/Layout';
 // import apolloClient from '../apollo-client';
 
@@ -68,7 +67,6 @@ function MyApp({ Component, pageProps, router, err }: PropsType) {
         <ApolloProvider client={apolloClient}>
           <ThemeProvider theme={theme}>
             <CssBaseline />
-            {/*<PageLoadingIndicator />*/}
             <Layout>
               {/* eslint-disable-next-line react/jsx-props-no-spreading */}
               <Component router={router} err={err} {...pageProps} />

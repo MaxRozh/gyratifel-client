@@ -1,13 +1,15 @@
+.header-wrapper {
+  flex-grow: 1;
+  height: 4.06rem;
+}
+
 .grow {
   flex-grow: 1;
 }
 
-.menuButton {
-  margin-right: 1rem;
-}
-
+.menuButton,
 .title {
-  display: none;
+  margin-right: 1rem;
 }
 
 .inputRoot {
@@ -20,12 +22,6 @@
 
 .sectionMobile {
   display: flex;
-}
-
-@media (min-width: 37.5rem) {
-  .title {
-    display: block;
-  }
 }
 
 @media (min-width: 60rem) {

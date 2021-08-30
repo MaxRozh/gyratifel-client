@@ -24,10 +24,12 @@ import InboxIcon from '@material-ui/icons/MoveToInbox';
 
 import { useTranslation } from 'next-i18next';
 
-import style from './HeaderStyles.module.css';
+// import style from './HeaderStyles.module.css';
+import useStyles from './HeaderStyles';
 
 function Header() {
   const { t } = useTranslation(['common']);
+  const style = useStyles();
   const [anchorEl, setAnchorEl] = useState<null | any>(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState<null | any>(null);
   const [isMenuOpened, setIsMenuOpened] = useState<boolean>(false);
@@ -105,7 +107,7 @@ function Header() {
   );
 
   return (
-    <div className={style.grow}>
+    <div className={style.headerWrapper}>
       <AppBar position="static">
         <Toolbar>
           {!isMatched && (
