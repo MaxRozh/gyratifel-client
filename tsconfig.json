@@ -29,10 +29,12 @@
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.js",
+    "pages/**/*",
     "@types"
   ],
   "exclude": [
     "node_modules",
+    "coverage",
     "**/*.spec.ts",
     ".next",
     "_next",

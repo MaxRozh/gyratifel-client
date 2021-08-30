@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Head from 'next/head';
 import { withRouter } from 'next/router';
 import { ApolloProvider } from '@apollo/client';
@@ -9,7 +9,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 
 // import MetaTags from 'components/meta-tags/MetaTags';
 // import PageLoadingIndicator from 'components/page-loading-indicator/PageLoadingIndicator';
-// import Layout from 'components/Layout';
+import Layout from 'components/Layout';
 // import apolloClient from '../apollo-client';
 
 import { useStore } from 'libs/redux';
@@ -29,7 +29,7 @@ function MyApp({ Component, pageProps, router, err }: PropsType) {
   const store = useStore(pageProps.initialReduxState);
   const apolloClient = useApollo(pageProps.initialApolloState);
 
-  React.useEffect(() => {
+  useEffect(() => {
     // Remove the server-side injected CSS.
     const jssStyles = document.querySelector('#jss-server-side');
     if (jssStyles?.parentElement) {
@@ -68,17 +68,11 @@ function MyApp({ Component, pageProps, router, err }: PropsType) {
         <ApolloProvider client={apolloClient}>
           <ThemeProvider theme={theme}>
             <CssBaseline />
-            <div className="wrapper">
-              {/*<Layout pathname={router.pathname}>*/}
-              <main className="content">
-                <div className="fix">
-                  {/*<PageLoadingIndicator />*/}
-                  {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-                  <Component router={router} err={err} {...pageProps} />
-                </div>
-              </main>
-              {/*</Layout>*/}
-            </div>
+            {/*<PageLoadingIndicator />*/}
+            <Layout>
+              {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+              <Component router={router} err={err} {...pageProps} />
+            </Layout>
           </ThemeProvider>
         </ApolloProvider>
       </Provider>

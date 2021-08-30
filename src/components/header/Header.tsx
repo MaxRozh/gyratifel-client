@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -11,19 +11,31 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
+
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+
+import Drawer from '@material-ui/core/Drawer';
+import List from '@material-ui/core/List';
+import Divider from '@material-ui/core/Divider';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import InboxIcon from '@material-ui/icons/MoveToInbox';
+
 import { useTranslation } from 'next-i18next';
 
-import { useStyles } from './HeaderStyles';
+import style from './HeaderStyles.module.css';
 
 function Header() {
-  const classes = useStyles();
   const { t } = useTranslation(['common']);
-  const [anchorEl, setAnchorEl] = React.useState<null | any>(null);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState<null | any>(null);
+  const [anchorEl, setAnchorEl] = useState<null | any>(null);
+  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState<null | any>(null);
+  const [isMenuOpened, setIsMenuOpened] = useState<boolean>(false);
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
   const menuId = 'primary-search-account-menu';
   const mobileMenuId = 'primary-search-account-menu-mobile';
+  const isMatched = useMediaQuery('(min-width:960px)');
 
   const handleMobileMenuClose = () => {
     setMobileMoreAnchorEl(null);
@@ -74,8 +86,6 @@ function Header() {
         </IconButton>
         <p>{t('notifications')}</p>
       </MenuItem>
-      {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
-      {/* @ts-ignore */}
       <MenuItem
         onClick={(event: React.MouseEvent<HTMLElement>): void => {
           setAnchorEl(event.currentTarget);
@@ -95,17 +105,65 @@ function Header() {
   );
 
   return (
-    <div className={classes.grow}>
+    <div className={style.grow}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="open drawer">
-            <MenuIcon />
-          </IconButton>
-          <Typography className={classes.title} variant="h6" noWrap>
+          {!isMatched && (
+            <>
+              <IconButton
+                edge="start"
+                className={style.menuButton}
+                color="inherit"
+                aria-label="open drawer"
+                onClick={() => setIsMenuOpened(true)}
+              >
+                <MenuIcon />
+              </IconButton>
+              <Drawer anchor="left" open={isMenuOpened} onClose={() => setIsMenuOpened(false)}>
+                <div
+                  role="presentation"
+                  onClick={() => setIsMenuOpened(false)}
+                  onKeyDown={() => setIsMenuOpened(false)}
+                >
+                  <List>
+                    {['News'].map((text) => (
+                      <ListItem button key={text}>
+                        <ListItemIcon>
+                          <MailIcon />
+                        </ListItemIcon>
+                        <ListItemText primary={text} />
+                      </ListItem>
+                    ))}
+                  </List>
+                  <Divider />
+                  <List>
+                    {['Support'].map((text) => (
+                      <ListItem button key={text}>
+                        <ListItemIcon>
+                          <InboxIcon />
+                        </ListItemIcon>
+                        <ListItemText primary={text} />
+                      </ListItem>
+                    ))}
+                  </List>
+                </div>
+              </Drawer>
+            </>
+          )}
+          <Typography className={style.title} variant="h6" noWrap>
             Gyratifel
           </Typography>
-          <div className={classes.grow} />
-          <div className={classes.sectionDesktop}>
+          {isMatched && (
+            <List style={{ display: 'flex', flexDirection: 'row', padding: 0 }}>
+              {['News', 'Some', 'Support', 'Games'].map((text) => (
+                <ListItem button key={text}>
+                  <ListItemText primary={text} />
+                </ListItem>
+              ))}
+            </List>
+          )}
+          <div className={style.grow} />
+          <div className={style.sectionDesktop}>
             <IconButton aria-label="show 4 new mails" color="inherit">
               <Badge badgeContent={4} color="secondary">
                 <MailIcon />
@@ -129,7 +187,7 @@ function Header() {
               <AccountCircle />
             </IconButton>
           </div>
-          <div className={classes.sectionMobile}>
+          <div className={style.sectionMobile}>
             <IconButton
               aria-label="show more"
               aria-controls={mobileMenuId}

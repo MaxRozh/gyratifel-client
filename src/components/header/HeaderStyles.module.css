@@ -1,0 +1,39 @@
+.grow {
+  flex-grow: 1;
+}
+
+.menuButton {
+  margin-right: 1rem;
+}
+
+.title {
+  display: none;
+}
+
+.inputRoot {
+  color: inherit;
+}
+
+.sectionDesktop {
+  display: none;
+}
+
+.sectionMobile {
+  display: flex;
+}
+
+@media (min-width: 37.5rem) {
+  .title {
+    display: block;
+  }
+}
+
+@media (min-width: 60rem) {
+  .sectionDesktop {
+    display: flex;
+  }
+
+  .sectionMobile {
+    display: none;
+  }
+}

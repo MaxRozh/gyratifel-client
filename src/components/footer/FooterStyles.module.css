@@ -1,0 +1,39 @@
+.root {
+  margin-top: 1.87rem;
+  background-color: #556cd6;
+  border-top: solid 0.18rem #998643;
+  padding-top: 1rem;
+  overflow-x: hidden;
+}
+
+.footerSections {
+  margin: 0 1rem;
+}
+
+.subFooter {
+  background-color: rgba(0, 0, 0, 0.15);
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  margin-top: 0.5rem;
+}
+
+.footerText {
+  color: #ffffff;
+  font-size: 1.12rem;
+  line-height: 1.5;
+}
+
+.invertedBtnDark {
+  color: #ffffff;
+  background-color: transparent;
+  border: 0.12rem #ffffff solid;
+  box-shadow: none;
+  margin: 0.5rem;
+}
+
+.white {
+  color: #ffffff;
+}
+
+.flexContainer {
+  display: flex;
+}
