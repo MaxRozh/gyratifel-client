@@ -1,10 +1,15 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 
 const { execSync } = require('child_process');
+const fs = require('fs');
+const path = require('path');
 
 const { findOutWhichVersion, getWrittenVersion, getWrittenCommitMessage } = require('./promptsForTag');
 const { ANSWERS, validateVersion } = require('./helpers');
 const colorfulConsole = require('../utils/colorfulConsole');
+const packageJson = require('../../package.json');
+
+const readmeFilePath = path.resolve(__dirname, '../../README.md');
 
 colorfulConsole({ message: 'Start updating release tag', hasStartLine: true });
 
@@ -12,11 +17,11 @@ const tagsRes = execSync('git tag', { encoding: 'utf-8' });
 const tagsInArr = tagsRes.split('\n');
 const lastTags = tagsInArr.splice(tagsInArr.length - 4);
 
-colorfulConsole({ message: '[1/3] Showing last release tags...' });
+colorfulConsole({ message: '[1/5] Showing last release tags...' });
 colorfulConsole({ message: lastTags.join('\n') });
 
 (async () => {
-  colorfulConsole({ message: '[2/3] Selecting version...' });
+  colorfulConsole({ message: '[2/5] Selecting version...' });
 
   let selectedVersion = await findOutWhichVersion(lastTags);
 
@@ -37,7 +42,7 @@ colorfulConsole({ message: lastTags.join('\n') });
   }
 
   colorfulConsole({ message: '[success] Selected version', isInfo: true });
-  colorfulConsole({ message: '[3/3] Setting new tag version...' });
+  colorfulConsole({ message: '[3/5] Writing commit message...' });
 
   let commitMessage = await getWrittenCommitMessage();
 
@@ -51,11 +56,23 @@ colorfulConsole({ message: lastTags.join('\n') });
     }
   }
 
+  colorfulConsole({ message: '[success] Wrote commit message', isInfo: true });
+  colorfulConsole({ message: '[4/5] Updating Readme.md and package.json...' });
+
+  const versionForView = selectedVersion.replace('v', '');
+
+  const readmeData = fs.readFileSync(readmeFilePath, 'utf-8');
+  const updatedReadmeData = readmeData.replace(/_\*`(.*?)`\*_/i, `_*\`${versionForView}\`*_`);
+  fs.writeFileSync(readmeFilePath, updatedReadmeData);
+
+  packageJson.version = versionForView;
+  fs.writeFileSync(path.resolve(__dirname, '../../package.json'), JSON.stringify(packageJson, null, 2));
+
+  colorfulConsole({ message: '[success] Updated Readme.md and package.json', isInfo: true });
+  colorfulConsole({ message: '[5/5] Setting and pushing new tag version...' });
+
   execSync(`git tag -a ${selectedVersion} -m "${commitMessage}"`);
+  execSync('git push origin --tags');
 
   colorfulConsole({ message: '[success] Version is updated', isInfo: true });
-  colorfulConsole({
-    message: `PLEASE, don't forget change version in package.json with this - ${selectedVersion}`,
-    isWarn: true
-  });
 })();
