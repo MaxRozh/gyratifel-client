@@ -1,6 +1,6 @@
 {
   "name": "gyratififel",
-  "version": "1.0.0",
+  "version": "1.3.3",
   "description": "Gyratififel",
   "repository": "git@github.com:MaxRozh/gyratifel-client.git",
   "author": "Maxim Rozhaev",
@@ -13,6 +13,9 @@
     "build:prod": "NODE_ENV=production next build",
     "build:dev": "NODE_ENV=development next build",
     "prod:analyze": "ANALYZE=true yarn build:prod",
+    "update-release-info": "bash workers/update-release-info.sh",
+    "write-bundle-sizes": "bash workers/analyze-bundles.sh",
+    "update-release-tag": "bash workers/update-release-tag.sh",
     "format-with-lints": "prettier --write .",
     "lint:js": "eslint 'src/**/*.{ts,tsx,js}' --quiet --cache --color",
     "lint:css": "stylelint 'src/**/*.css'",
