@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import LinearProgress from '@material-ui/core/LinearProgress';
+// import LinearProgress from '@material-ui/core/LinearProgress';
 
 const PageLoadingIndicator = () => {
   const router = useRouter();
@@ -26,7 +26,7 @@ const PageLoadingIndicator = () => {
 
   if (!isLoad) return null;
 
-  return <LinearProgress />;
+  return <span>Progress bar</span>;
 };
 
 export default PageLoadingIndicator;
