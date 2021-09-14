@@ -4,6 +4,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 import HomePage from 'pages/home/HomePage';
 
+// @ts-ignore
 import apolloClient from '../apollo-client';
 
 type PropsType = {

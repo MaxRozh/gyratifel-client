@@ -14,6 +14,7 @@ import { useApollo } from 'libs/apollo';
 // import theme from 'styles/theme';
 
 // import 'styles/normalize.css';
+import 'tailwindcss/tailwind.css';
 
 type PropsType = {
   Component: any;
