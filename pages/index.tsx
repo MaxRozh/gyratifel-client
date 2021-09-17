@@ -1,11 +1,12 @@
 import React from 'react';
-import { gql } from '@apollo/client';
+// import { gql } from '@apollo/client';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
-import HomePage from 'pages/home/HomePage';
+// import HomePage from 'pages/home/HomePage';
+import NewHomePage from 'pages/home/NewHomePage';
 
 // @ts-ignore
-import apolloClient from '../apollo-client';
+// import apolloClient from '../apollo-client';
 
 type PropsType = {
   countries: Array<{
@@ -16,38 +17,41 @@ type PropsType = {
 };
 
 export default function Home({ countries }: PropsType) {
-  return (
-    <>
-      <HomePage />
-      <h1>Home</h1>
-      <p>Get started</p>
-      <p>Eff</p>
-      <div>
-        {countries.map((country) => (
-          <div key={country.code}>
-            <h3>{country.name}</h3>
-            <p>
-              {country.code} - {country.emoji}
-            </p>
-          </div>
-        ))}
-      </div>
-    </>
-  );
+  // eslint-disable-next-line no-unused-expressions
+  countries?.length;
+  return <NewHomePage />;
+  // return (
+  //   <>
+  //     <HomePage />
+  //     <h1>Home</h1>
+  //     <p>Get started</p>
+  //     <p>Eff</p>
+  //     <div>
+  //       {countries.map((country) => (
+  //         <div key={country.code}>
+  //           <h3>{country.name}</h3>
+  //           <p>
+  //             {country.code} - {country.emoji}
+  //           </p>
+  //         </div>
+  //       ))}
+  //     </div>
+  //   </>
+  // );
 }
 
 export async function getServerSideProps({ locale }: { locale: string }) {
-  const { data } = await apolloClient.query({
-    query: gql`
-      query Countries {
-        countries {
-          code
-          name
-          emoji
-        }
-      }
-    `
-  });
+  // const { data } = await apolloClient.query({
+  //   query: gql`
+  //     query Countries {
+  //       countries {
+  //         code
+  //         name
+  //         emoji
+  //       }
+  //     }
+  //   `
+  // });
   // res.setHeader(
   //   'Cache-Control',
   //   'public, s-maxage=10, stale-while-revalidate=59'
@@ -56,7 +60,7 @@ export async function getServerSideProps({ locale }: { locale: string }) {
   return {
     props: {
       locale,
-      countries: data.countries.slice(0, 10),
+      // countries: data.countries.slice(0, 10),
       ...(await serverSideTranslations(locale, ['common']))
     }
   };
