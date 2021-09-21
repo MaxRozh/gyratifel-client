@@ -5,7 +5,7 @@ import { Disclosure, Transition } from '@headlessui/react';
 
 import Svg from '_ui/svg/Svg';
 import HeaderNotifications from 'components/header/notifications/HeaderNotifications';
-import HeaderProfileMenu from 'components/header/profile/ProfileMenu';
+import HeaderProfileMenu from 'components/header/profile/HeaderProfileMenu';
 
 import { menu } from 'constants/menu';
 import type { MenuItemType } from 'constants/menu';
@@ -26,6 +26,7 @@ const MenuItem = ({ item, isCurrentPage }: { item: MenuItemType; isCurrentPage: 
 );
 
 function Header() {
+  console.warn(list);
   return (
     <Disclosure as="header" className="bg-gray-800 fixed w-full z-30">
       {({ open }) => (
