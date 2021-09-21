@@ -1,7 +1,7 @@
 import React from 'react';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
-import ResetPassword from 'pages/reset-password/ResetPassword';
+import ResetPassword from 'containers/reset-password/ResetPassword';
 
 export default function Home() {
   return <ResetPassword />;

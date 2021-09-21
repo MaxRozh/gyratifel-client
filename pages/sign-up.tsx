@@ -1,7 +1,7 @@
 import React from 'react';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
-import SignUpPage from 'pages/sign-up/SignUpPage';
+import SignUpPage from 'containers/sign-up/SignUpPage';
 
 export default function Home() {
   return <SignUpPage />;

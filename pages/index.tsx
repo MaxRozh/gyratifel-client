@@ -3,7 +3,7 @@ import React from 'react';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 // import HomePage from 'pages/home/HomePage';
-import NewHomePage from 'pages/home/NewHomePage';
+import NewHomePage from 'containers/home/NewHomePage';
 
 // @ts-ignore
 // import apolloClient from '../apollo-client';
