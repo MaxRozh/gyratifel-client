@@ -1,35 +1,7 @@
-.header-wrapper {
-  flex-grow: 1;
-  height: 4.06rem;
+.btn {
+  @apply py-2 px-4 font-semibold rounded-lg shadow-md;
 }
 
-.grow {
-  flex-grow: 1;
-}
-
-.menuButton,
-.title {
-  margin-right: 1rem;
-}
-
-.inputRoot {
-  color: inherit;
-}
-
-.sectionDesktop {
-  display: none;
-}
-
-.sectionMobile {
-  display: flex;
-}
-
-@media (min-width: 60rem) {
-  .sectionDesktop {
-    display: flex;
-  }
-
-  .sectionMobile {
-    display: none;
-  }
+.btn-green {
+  @apply text-white bg-green-500 hover:bg-green-700;
 }

@@ -1,8 +1,9 @@
-import React, { useState, useEffect, Fragment } from 'react';
+import React, { Fragment } from 'react';
 import Link from 'next/link';
 import classNames from 'classnames';
+import { Disclosure, Menu, Transition } from '@headlessui/react';
 
-import { Disclosure, Menu, Transition } from '@headlessui/react'
+import Svg from '_ui/svg/Svg';
 
 const navigation = [
   { name: 'Dashboard', href: '#', current: true },
@@ -11,12 +12,8 @@ const navigation = [
   { name: 'Calendar', href: '#', current: false },
 ];
 
-// function classNames(...classes) {
-//   return classes.filter(Boolean).join(' ');
-// }
-
 function Header() {
-  const isLogged = false;
+  const isLogged = true;
   return (
     <Disclosure as="nav" className="bg-gray-800 fixed w-full z-30">
       {({ open }) => (
@@ -26,26 +23,12 @@ function Header() {
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                   <span className="sr-only">Open main menu</span>
-                  {open ? (
-                    <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                         stroke="currentColor" aria-hidden="true">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"/>
-                    </svg>
-                  ) : (
-                    <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                         stroke="currentColor" aria-hidden="true">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
-                            d="M4 6h16M4 12h16M4 18h16"/>
-                    </svg>
-                  )}
+                  <Svg styleClassName="h-6 w-6" icon={open ? 'close' : 'hamburger'} />
                 </Disclosure.Button>
               </div>
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex-shrink-0 flex items-center">
-                  <a
-                    className="text-2xl font-bold text-white dark:text-white lg:text-3xl"
-                    href="/"
-                  >
+                  <a className="text-2xl font-bold text-white dark:text-white lg:text-3xl" href="/">
                     Gyratifel
                   </a>
                 </div>
@@ -72,11 +55,7 @@ function Header() {
                   <div>
                     <Menu.Button className="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                       <span className="sr-only">View notifications</span>
-                      <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                           stroke="currentColor" aria-hidden="true">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
-                              d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/>
-                      </svg>
+                      <Svg styleClassName="h-6 w-6" icon="ring" />
                     </Menu.Button>
                   </div>
                   <Transition
@@ -258,232 +237,6 @@ function Header() {
         </>
       )}
     </Disclosure>
-  );
-}
-
-function Headere() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const isLogged = false;
-
-  return (
-    <header className="fixed w-full z-30 md:bg-opacity-90 transition duration-300 ease-in-out bg-white shadow dark:bg-gray-800">
-      <div className="container px-6 md:py-4 sm:pt-4 mx-auto">
-        <div className="md:flex md:items-center md:justify-between">
-          <div className="flex items-center justify-between">
-            <div className="text-xl font-semibold text-gray-700">
-              <a
-                className="text-2xl font-bold text-gray-800 dark:text-white lg:text-3xl hover:text-gray-700 dark:hover:text-gray-300"
-                href="#"
-              >
-                Gyratifel
-              </a>
-            </div>
-            <div className="flex md:hidden">
-              {/*<button*/}
-              {/*  type="button"*/}
-              {/*  className="text-gray-500 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:text-gray-600 dark:focus:text-gray-400"*/}
-              {/*  aria-label="toggle menu"*/}
-              {/*>*/}
-              {/*  <svg viewBox="0 0 24 24" className="w-6 h-6 fill-current">*/}
-              {/*    <path*/}
-              {/*      fillRule="evenodd"*/}
-              {/*      d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"*/}
-              {/*    />*/}
-              {/*  </svg>*/}
-              {/*</button>*/}
-              <button
-                aria-label="Open Menu"
-                title="Open Menu"
-                className="p-2 -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline hover:bg-deep-purple-50 focus:bg-deep-purple-50"
-                onClick={() => setIsMenuOpen(true)}
-              >
-                <svg className="w-5 text-gray-600" viewBox="0 0 24 24">
-                  <path
-                    fill="currentColor"
-                    d="M23,13H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,13,23,13z"
-                  />
-                  <path
-                    fill="currentColor"
-                    d="M23,6H1C0.4,6,0,5.6,0,5s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,6,23,6z"
-                  />
-                  <path
-                    fill="currentColor"
-                    d="M23,20H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,20,23,20z"
-                  />
-                </svg>
-              </button>
-            </div>
-          </div>
-          <div className="flex-1 md:flex md:items-center md:justify-between">
-            <div className="lg:flex hidden flex-col -mx-4 md:flex-row md:items-center md:mx-8">
-              <a
-                href="#"
-                className="px-2 py-1 mx-2 mt-2 text-sm font-medium text-gray-700 transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-700"
-              >
-                Stats
-              </a>
-              <a
-                href="#"
-                className="px-2 py-1 mx-2 mt-2 text-sm font-medium text-gray-700 transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-700"
-              >
-                News
-              </a>
-              <a
-                href="#"
-                className="px-2 py-1 mx-2 mt-2 text-sm font-medium text-gray-700 transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-700"
-              >
-                Support
-              </a>
-            </div>
-            <div className="lg:hidden">
-              {isMenuOpen && (
-                <div className="absolute top-0 left-0 w-full">
-                  <div className="px-12 pt-4 bg-white border rounded shadow-sm">
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="text-xl font-semibold text-gray-700">
-                        <a
-                          className="text-2xl font-bold text-gray-800 dark:text-white lg:text-3xl hover:text-gray-700 dark:hover:text-gray-300"
-                          href="#"
-                        >
-                          Gyratifel
-                        </a>
-                      </div>
-                      <div>
-                        <button
-                          aria-label="Close Menu"
-                          title="Close Menu"
-                          className="p-2 -mt-2 -mr-2 transition duration-200 rounded hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                          onClick={() => setIsMenuOpen(false)}
-                        >
-                          <svg className="w-5 text-gray-600" viewBox="0 0 24 24">
-                            <path
-                              fill="currentColor"
-                              d="M19.7,4.3c-0.4-0.4-1-0.4-1.4,0L12,10.6L5.7,4.3c-0.4-0.4-1-0.4-1.4,0s-0.4,1,0,1.4l6.3,6.3l-6.3,6.3 c-0.4,0.4-0.4,1,0,1.4C4.5,19.9,4.7,20,5,20s0.5-0.1,0.7-0.3l6.3-6.3l6.3,6.3c0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3 c0.4-0.4,0.4-1,0-1.4L13.4,12l6.3-6.3C20.1,5.3,20.1,4.7,19.7,4.3z"
-                            />
-                          </svg>
-                        </button>
-                      </div>
-                    </div>
-                    <nav>
-                      <ul className="space-y-4">
-                        <li>
-                          <a
-                            href="/"
-                            aria-label="Our product"
-                            title="Our product"
-                            className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                          >
-                            Product
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="/"
-                            aria-label="Our product"
-                            title="Our product"
-                            className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                          >
-                            Features
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="/"
-                            aria-label="Product pricing"
-                            title="Product pricing"
-                            className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                          >
-                            Pricing
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="/"
-                            aria-label="About us"
-                            title="About us"
-                            className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                          >
-                            About us
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="/"
-                            aria-label="Sign in"
-                            title="Sign in"
-                            className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                          >
-                            Sign in
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="/"
-                            className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-                            aria-label="Sign up"
-                            title="Sign up"
-                          >
-                            Sign up
-                          </a>
-                        </li>
-                      </ul>
-                    </nav>
-                  </div>
-                </div>
-              )}
-            </div>
-            <div className="flex items-center mt-4 md:mt-0">
-              <button
-                className="hidden mx-4 text-gray-600 md:block dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 focus:text-gray-700 dark:focus:text-gray-400 focus:outline-none"
-                aria-label="show notifications"
-              >
-                <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M15 17H20L18.5951 15.5951C18.2141 15.2141 18 14.6973 18 14.1585V11C18 8.38757 16.3304 6.16509 14 5.34142V5C14 3.89543 13.1046 3 12 3C10.8954 3 10 3.89543 10 5V5.34142C7.66962 6.16509 6 8.38757 6 11V14.1585C6 14.6973 5.78595 15.2141 5.40493 15.5951L4 17H9M15 17V18C15 19.6569 13.6569 21 12 21C10.3431 21 9 19.6569 9 18V17M15 17H9"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </button>
-              {isLogged ? (
-                <button
-                  type="button"
-                  className="items-center focus:outline-none hidden lg:flex"
-                  aria-label="toggle profile dropdown"
-                >
-                  <div className="w-8 h-8 overflow-hidden border-2 border-gray-400 rounded-full">
-                    <img
-                      src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80"
-                      className="object-cover w-full h-full"
-                      alt="avatar"
-                    />
-                  </div>
-
-                  <h3 className="mx-2 text-sm font-medium text-gray-700 dark:text-gray-200 md:hidden">Khatab wedaa</h3>
-                </button>
-              ) : (
-                <div className="items-center py-2 -mx-1 md:mx-0 hidden lg:flex">
-                  <a
-                    className="block w-1/2 px-3 py-2 mx-1 text-sm font-medium leading-5 text-center text-white transition-colors duration-200 transform bg-gray-500 rounded-md hover:bg-blue-600 md:mx-2 md:w-auto"
-                    href="#"
-                  >
-                    Sign in
-                  </a>
-                  <a
-                    className="block w-1/2 px-3 py-2 mx-1 text-sm font-medium leading-5 text-center text-white transition-colors duration-200 transform bg-blue-500 rounded-md hover:bg-blue-600 md:mx-0 md:w-auto"
-                    href="#"
-                  >
-                    Sign up
-                  </a>
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
   );
 }
 

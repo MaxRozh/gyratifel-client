@@ -30,6 +30,11 @@ const nextConfig = {
   webpack: (config) => {
     const newConfig = { ...config };
 
+    newConfig.module.rules.push({
+      test: /\.svg$/,
+      use: ['@svgr/webpack']
+    });
+
     // DEV PLUGINS
     if (process.env.NODE_ENV === 'development') {
       newConfig.plugins.push(
