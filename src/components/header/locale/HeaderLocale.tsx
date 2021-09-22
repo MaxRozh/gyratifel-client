@@ -38,15 +38,9 @@ function HeaderLocale() {
                   } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
                 >
                   {active ? (
-                    <EditActiveIcon
-                      className="w-5 h-5 mr-2"
-                      aria-hidden="true"
-                    />
+                    <EditActiveIcon className="w-5 h-5 mr-2" aria-hidden="true" />
                   ) : (
-                    <EditInactiveIcon
-                      className="w-5 h-5 mr-2"
-                      aria-hidden="true"
-                    />
+                    <EditInactiveIcon className="w-5 h-5 mr-2" aria-hidden="true" />
                   )}
                   Edit
                 </button>
@@ -60,15 +54,9 @@ function HeaderLocale() {
                   } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
                 >
                   {active ? (
-                    <DuplicateActiveIcon
-                      className="w-5 h-5 mr-2"
-                      aria-hidden="true"
-                    />
+                    <DuplicateActiveIcon className="w-5 h-5 mr-2" aria-hidden="true" />
                   ) : (
-                    <DuplicateInactiveIcon
-                      className="w-5 h-5 mr-2"
-                      aria-hidden="true"
-                    />
+                    <DuplicateInactiveIcon className="w-5 h-5 mr-2" aria-hidden="true" />
                   )}
                   Duplicate
                 </button>
@@ -84,15 +72,9 @@ function HeaderLocale() {
                   } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
                 >
                   {active ? (
-                    <ArchiveActiveIcon
-                      className="w-5 h-5 mr-2"
-                      aria-hidden="true"
-                    />
+                    <ArchiveActiveIcon className="w-5 h-5 mr-2" aria-hidden="true" />
                   ) : (
-                    <ArchiveInactiveIcon
-                      className="w-5 h-5 mr-2"
-                      aria-hidden="true"
-                    />
+                    <ArchiveInactiveIcon className="w-5 h-5 mr-2" aria-hidden="true" />
                   )}
                   Archive
                 </button>
@@ -106,15 +88,9 @@ function HeaderLocale() {
                   } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
                 >
                   {active ? (
-                    <MoveActiveIcon
-                      className="w-5 h-5 mr-2"
-                      aria-hidden="true"
-                    />
+                    <MoveActiveIcon className="w-5 h-5 mr-2" aria-hidden="true" />
                   ) : (
-                    <MoveInactiveIcon
-                      className="w-5 h-5 mr-2"
-                      aria-hidden="true"
-                    />
+                    <MoveInactiveIcon className="w-5 h-5 mr-2" aria-hidden="true" />
                   )}
                   Move
                 </button>
@@ -130,15 +106,9 @@ function HeaderLocale() {
                   } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
                 >
                   {active ? (
-                    <DeleteActiveIcon
-                      className="w-5 h-5 mr-2 text-violet-400"
-                      aria-hidden="true"
-                    />
+                    <DeleteActiveIcon className="w-5 h-5 mr-2 text-violet-400" aria-hidden="true" />
                   ) : (
-                    <DeleteInactiveIcon
-                      className="w-5 h-5 mr-2 text-violet-400"
-                      aria-hidden="true"
-                    />
+                    <DeleteInactiveIcon className="w-5 h-5 mr-2 text-violet-400" aria-hidden="true" />
                   )}
                   Delete
                 </button>
