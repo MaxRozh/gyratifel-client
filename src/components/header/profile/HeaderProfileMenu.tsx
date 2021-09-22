@@ -3,7 +3,7 @@ import Link from 'next/link';
 import classNames from 'classnames';
 import { Menu, Transition } from '@headlessui/react';
 
-import { profileMenu } from 'constants/profileMenu';
+import { PROFILE_MENU_LIST } from 'constants/profileMenu';
 
 type PropsType = {
   isLogged: boolean;
@@ -33,7 +33,7 @@ function HeaderProfileMenu({ isLogged, profileInfo }: PropsType) {
       >
         {/* eslint-disable-next-line max-len */}
         <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-          {profileMenu.map(({ name, href }) => (
+          {PROFILE_MENU_LIST.map(({ name, href }) => (
             <Menu.Item key={name}>
               {({ active }) => (
                 <Link href={href}>

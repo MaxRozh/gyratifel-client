@@ -1,13 +1,13 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const { list, defaultLocale } = require('./src/constants/locales');
+const { LOCALES_LIST, DEFAULT_LOCALE } = require('./src/constants/locales');
 
 module.exports = {
   i18n: {
-    defaultLocale,
-    fallbackLng: defaultLocale,
-    locales: list,
+    defaultLocale: DEFAULT_LOCALE,
+    fallbackLng: DEFAULT_LOCALE,
+    locales: LOCALES_LIST,
     defaultNS: 'common',
-    otherLanguages: list,
+    otherLanguages: LOCALES_LIST,
     browserLanguageDetection: true,
     serverLanguageDetection: true,
     ignoreRoutes: ['/_next/', '/public/', '/api/', '/service-worker.js', '/service-worker.js.map', '/health']

@@ -40,7 +40,10 @@ function HeaderNotifications({ list }: PropsType) {
                     {message.map((item) => {
                       if (item.type) {
                         return (
-                          <span className={item.type === 'important' ? 'font-bold text-blue-500' : 'font-bold'}>
+                          <span
+                            className={item.type === 'important' ? 'font-bold text-blue-500' : 'font-bold'}
+                            key={item.text}
+                          >
                             {item.text}
                           </span>
                         );

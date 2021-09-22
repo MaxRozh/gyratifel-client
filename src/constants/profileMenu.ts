@@ -3,7 +3,7 @@ type ProfileMenuItemType = {
   href: string;
 };
 
-export const profileMenu: Array<ProfileMenuItemType> = [
+export const PROFILE_MENU_LIST: Array<ProfileMenuItemType> = [
   { name: 'Your Profile', href: '/profile' },
   { name: 'Settings', href: '/profile/settings' },
   { name: 'Sign out', href: '/sign-out' }

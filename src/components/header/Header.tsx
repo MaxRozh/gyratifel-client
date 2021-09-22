@@ -7,7 +7,7 @@ import Svg from '_ui/svg/Svg';
 import HeaderNotifications from 'components/header/notifications/HeaderNotifications';
 import HeaderProfileMenu from 'components/header/profile/HeaderProfileMenu';
 
-import { menu } from 'constants/menu';
+import { MENU_LIST } from 'constants/menu';
 import type { MenuItemType } from 'constants/menu';
 import { notificationsList } from 'constants/mocks/notifications';
 
@@ -26,7 +26,6 @@ const MenuItem = ({ item, isCurrentPage }: { item: MenuItemType; isCurrentPage: 
 );
 
 function Header() {
-  console.warn(list);
   return (
     <Disclosure as="header" className="bg-gray-800 fixed w-full z-30">
       {({ open }) => (
@@ -48,7 +47,7 @@ function Header() {
                 </div>
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
-                    {menu.map((item) => (
+                    {MENU_LIST.map((item) => (
                       <MenuItem item={item} isCurrentPage={false} key={item.name} />
                     ))}
                   </div>
@@ -79,7 +78,7 @@ function Header() {
               leaveTo="transform opacity-0 scale-95"
             >
               <div className="px-2 pt-2 pb-3 space-y-1">
-                {menu.map((item) => (
+                {MENU_LIST.map((item) => (
                   <MenuItem item={item} isCurrentPage={false} key={item.name} />
                 ))}
               </div>
