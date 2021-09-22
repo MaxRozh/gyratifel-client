@@ -6,6 +6,7 @@ import { Disclosure, Transition } from '@headlessui/react';
 import Svg from '_ui/svg/Svg';
 import HeaderNotifications from 'components/header/notifications/HeaderNotifications';
 import HeaderProfileMenu from 'components/header/profile/HeaderProfileMenu';
+import HeaderLocale from 'components/header/locale/HeaderLocale';
 
 import { MENU_LIST } from 'constants/menu';
 import type { MenuItemType } from 'constants/menu';
@@ -55,6 +56,7 @@ function Header() {
               </div>
               {/* eslint-disable-next-line max-len */}
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                <HeaderLocale />
                 <HeaderNotifications list={notificationsList} />
                 <HeaderProfileMenu
                   isLogged
@@ -66,7 +68,6 @@ function Header() {
               </div>
             </div>
           </div>
-
           <Disclosure.Panel className="sm:hidden">
             <Transition
               as={Fragment}
