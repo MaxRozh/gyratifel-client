@@ -62,7 +62,7 @@ export async function getStaticProps({ locale, locales }: { locale: string }) {
       locales,
       locale,
       // countries: data.countries.slice(0, 10),
-      ...(await serverSideTranslations(locale, ['common']))
+      ...(await serverSideTranslations(locale, ['home', 'common']))
     }
   };
 }

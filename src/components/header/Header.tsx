@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import Link from 'next/link';
 import classNames from 'classnames';
 import { Disclosure, Transition } from '@headlessui/react';
+import { useTranslation } from 'next-i18next';
 
 import Svg from '_ui/svg/Svg';
 import HeaderNotifications from 'components/header/notifications/HeaderNotifications';
@@ -12,7 +13,7 @@ import { MENU_LIST } from 'constants/menu';
 import type { MenuItemType } from 'constants/menu';
 import { notificationsList } from 'constants/mocks/notifications';
 
-const MenuItem = ({ item, isCurrentPage }: { item: MenuItemType; isCurrentPage: boolean }) => (
+const MenuItem = ({ item, isCurrentPage, t }: { item: MenuItemType; isCurrentPage: boolean; t: i18nT; }) => (
   <Link href={item.href}>
     <a
       className={classNames(
@@ -21,12 +22,14 @@ const MenuItem = ({ item, isCurrentPage }: { item: MenuItemType; isCurrentPage: 
       )}
       aria-current={isCurrentPage ? 'page' : undefined}
     >
-      {item.name}
+      {t(item.name)}
     </a>
   </Link>
 );
 
 function Header() {
+  const { t } = useTranslation('common');
+
   return (
     <Disclosure as="header" className="bg-gray-800 fixed w-full z-30">
       {({ open }) => (
@@ -49,7 +52,7 @@ function Header() {
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
                     {MENU_LIST.map((item) => (
-                      <MenuItem item={item} isCurrentPage={false} key={item.name} />
+                      <MenuItem item={item} isCurrentPage={false} key={item.name} t={t} />
                     ))}
                   </div>
                 </div>
@@ -57,13 +60,14 @@ function Header() {
               {/* eslint-disable-next-line max-len */}
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <HeaderLocale />
-                <HeaderNotifications list={notificationsList} />
+                <HeaderNotifications list={notificationsList} t={t} />
                 <HeaderProfileMenu
                   isLogged
                   profileInfo={{
                     // eslint-disable-next-line max-len
                     img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
                   }}
+                  t={t}
                 />
               </div>
             </div>
@@ -80,7 +84,7 @@ function Header() {
             >
               <div className="px-2 pt-2 pb-3 space-y-1">
                 {MENU_LIST.map((item) => (
-                  <MenuItem item={item} isCurrentPage={false} key={item.name} />
+                  <MenuItem item={item} isCurrentPage={false} key={item.name} t={t} />
                 ))}
               </div>
             </Transition>

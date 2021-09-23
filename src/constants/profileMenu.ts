@@ -4,7 +4,7 @@ type ProfileMenuItemType = {
 };
 
 export const PROFILE_MENU_LIST: Array<ProfileMenuItemType> = [
-  { name: 'Your Profile', href: '/profile' },
-  { name: 'Settings', href: '/profile/settings' },
-  { name: 'Sign out', href: '/sign-out' }
+  { name: 'your_profile', href: '/profile' },
+  { name: 'settings', href: '/profile/settings' },
+  { name: 'sign_out', href: '/sign-out' }
 ];

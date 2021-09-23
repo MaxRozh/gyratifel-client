@@ -7,9 +7,10 @@ import type { NotificationItemType } from 'constants/mocks/notifications';
 
 type PropsType = {
   list: Array<NotificationItemType>;
+  t: Function;
 };
 
-function HeaderNotifications({ list }: PropsType) {
+function HeaderNotifications({ list, t }: PropsType) {
   return (
     <Menu as="div" className="ml-3 relative">
       <div>
@@ -58,7 +59,7 @@ function HeaderNotifications({ list }: PropsType) {
           <Menu.Item>
             <Link href="/notifications">
               <a className="block py-2 font-bold text-center text-white bg-gray-800 dark:bg-gray-700 hover:underline">
-                See all notifications
+                {t('see_all_notifications')}
               </a>
             </Link>
           </Menu.Item>

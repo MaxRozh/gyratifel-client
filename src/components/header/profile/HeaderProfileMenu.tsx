@@ -10,9 +10,10 @@ type PropsType = {
   profileInfo: {
     img: string;
   };
+  t: Function;
 };
 
-function HeaderProfileMenu({ isLogged, profileInfo }: PropsType) {
+function HeaderProfileMenu({ isLogged, profileInfo, t }: PropsType) {
   return isLogged ? (
     <Menu as="div" className="ml-3 relative">
       <div>
@@ -38,7 +39,7 @@ function HeaderProfileMenu({ isLogged, profileInfo }: PropsType) {
               {({ active }) => (
                 <Link href={href}>
                   <a className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}>
-                    {name}
+                    {t(name)}
                   </a>
                 </Link>
               )}
@@ -50,14 +51,14 @@ function HeaderProfileMenu({ isLogged, profileInfo }: PropsType) {
   ) : (
     <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
       <a href="/sign-in" className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
-        Sign in
+        {t('sign_in')}
       </a>
       <a
         href="/sign-out"
         // eslint-disable-next-line max-len
         className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
       >
-        Sign up
+        {t('sign_up')}
       </a>
     </div>
   );

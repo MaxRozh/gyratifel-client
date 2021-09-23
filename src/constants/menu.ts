@@ -4,6 +4,6 @@ export type MenuItemType = {
 };
 
 export const MENU_LIST: Array<MenuItemType> = [
-  { name: 'News', href: '/news' },
-  { name: 'Support', href: '/support' }
+  { name: 'news', href: '/news' },
+  { name: 'support', href: '/support' }
 ];
