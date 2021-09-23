@@ -40,7 +40,7 @@ export default function Home({ countries }: PropsType) {
   // );
 }
 
-export async function getServerSideProps({ locale }: { locale: string }) {
+export async function getStaticProps({ locale, locales }: { locale: string }) {
   // const { data } = await apolloClient.query({
   //   query: gql`
   //     query Countries {
@@ -59,6 +59,7 @@ export async function getServerSideProps({ locale }: { locale: string }) {
 
   return {
     props: {
+      locales,
       locale,
       // countries: data.countries.slice(0, 10),
       ...(await serverSideTranslations(locale, ['common']))

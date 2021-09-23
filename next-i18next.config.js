@@ -10,6 +10,7 @@ module.exports = {
     otherLanguages: LOCALES_LIST,
     browserLanguageDetection: true,
     serverLanguageDetection: true,
-    ignoreRoutes: ['/_next/', '/public/', '/api/', '/service-worker.js', '/service-worker.js.map', '/health']
+    ignoreRoutes: ['/_next/', '/public/', '/api/', '/service-worker.js', '/service-worker.js.map', '/health'],
+    debug: false
   }
 };
