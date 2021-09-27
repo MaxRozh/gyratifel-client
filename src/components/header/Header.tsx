@@ -1,10 +1,11 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import classNames from 'classnames';
-import { Disclosure, Transition } from '@headlessui/react';
+import { Disclosure } from '@headlessui/react';
 import { useTranslation } from 'next-i18next';
 
 import Svg from '_ui/svg/Svg';
+import UiTransition from '_ui/transition/UiTransition';
 import HeaderNotifications from 'components/header/notifications/HeaderNotifications';
 import HeaderProfileMenu from 'components/header/profile/HeaderProfileMenu';
 import HeaderLocale from 'components/header/locale/HeaderLocale';
@@ -13,7 +14,7 @@ import { MENU_LIST } from 'constants/menu';
 import type { MenuItemType } from 'constants/menu';
 import { notificationsList } from 'constants/mocks/notifications';
 
-const MenuItem = ({ item, isCurrentPage, t }: { item: MenuItemType; isCurrentPage: boolean; t: i18nT; }) => (
+const MenuItem = ({ item, isCurrentPage, t }: { item: MenuItemType; isCurrentPage: boolean; t: Function }) => (
   <Link href={item.href}>
     <a
       className={classNames(
@@ -73,21 +74,13 @@ function Header() {
             </div>
           </div>
           <Disclosure.Panel className="sm:hidden">
-            <Transition
-              as={Fragment}
-              enter="transition ease-out duration-100"
-              enterFrom="transform opacity-0 scale-95"
-              enterTo="transform opacity-100 scale-100"
-              leave="transition ease-in duration-75"
-              leaveFrom="transform opacity-100 scale-100"
-              leaveTo="transform opacity-0 scale-95"
-            >
+            <UiTransition>
               <div className="px-2 pt-2 pb-3 space-y-1">
                 {MENU_LIST.map((item) => (
                   <MenuItem item={item} isCurrentPage={false} key={item.name} t={t} />
                 ))}
               </div>
-            </Transition>
+            </UiTransition>
           </Disclosure.Panel>
         </>
       )}

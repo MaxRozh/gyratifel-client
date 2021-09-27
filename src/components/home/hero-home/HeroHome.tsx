@@ -1,8 +1,12 @@
 import React from 'react';
+import { useTranslation } from 'next-i18next';
+
 // import Modal from 'components/modal/Modal';
+import Svg from '_ui/svg/Svg';
 
 function HeroHome() {
   // const [videoModalOpen, setVideoModalOpen] = useState(false);
+  const { t } = useTranslation('home');
 
   return (
     <section className="relative">
@@ -28,15 +32,14 @@ function HeroHome() {
               className="text-5xl md:text-6xl font-extrabold leading-tighter tracking-tighter mb-4"
               data-aos="zoom-y-out"
             >
-              Make your website{' '}
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-teal-400">
-                wonderful
+              {t('title')}{' '}
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-800 to-blue-300 uppercase">
+                {t('life')}
               </span>
             </h1>
             <div className="max-w-3xl mx-auto">
               <p className="text-xl text-gray-600 mb-8" data-aos="zoom-y-out" data-aos-delay="150">
-                Our landing page template works on all devices, so you only have to set it up once, and get beautiful
-                results forever.
+                {t('desc')}
               </p>
               <div
                 className="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center"
@@ -44,20 +47,17 @@ function HeroHome() {
                 data-aos-delay="300"
               >
                 <div>
-                  <a className="btn text-white bg-blue-600 hover:bg-blue-700 w-full mb-4 sm:w-auto sm:mb-0" href="#0">
-                    Start free trial
-                  </a>
-                </div>
-                <div>
-                  <a className="btn text-white bg-gray-900 hover:bg-gray-800 w-full sm:w-auto sm:ml-4" href="#0">
-                    Learn more
+                  <a
+                    // eslint-disable-next-line max-len
+                    className="px-12 py-4 bg-gradient-to-r from-blue-400 to-blue-800 hover:from-blue-800 tracking-wide text-white font-medium rounded-md focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-80"
+                    href="#0"
+                  >
+                    {t('start')}
                   </a>
                 </div>
               </div>
             </div>
           </div>
-
-          {/* Hero image */}
           <div>
             <div className="relative flex justify-center mb-8" data-aos="zoom-y-out" data-aos-delay="450">
               <div className="flex flex-col justify-center">
@@ -108,16 +108,11 @@ function HeroHome() {
                 }}
                 aria-controls="modal"
               >
-                <svg
-                  className="w-6 h-6 fill-current text-gray-400 group-hover:text-blue-600 flex-shrink-0"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  {/* eslint-disable-next-line max-len */}
-                  <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zm0 2C5.373 24 0 18.627 0 12S5.373 0 12 0s12 5.373 12 12-5.373 12-12 12z" />
-                  <path d="M10 17l6-5-6-5z" />
-                </svg>
-                <span className="ml-3">Watch the full video (2 min)</span>
+                <Svg
+                  icon="play"
+                  styleClassName="w-6 h-6 fill-current text-gray-400 group-hover:text-blue-600 flex-shrink-0"
+                />
+                <span className="ml-3">{t('play_btn')}</span>
               </button>
             </div>
 

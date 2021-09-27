@@ -2,8 +2,7 @@ import React from 'react';
 // import { gql } from '@apollo/client';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
-// import HomePage from 'pages/home/HomePage';
-import NewHomePage from 'containers/home/NewHomePage';
+import HomePage from 'containers/home/HomePage';
 
 // @ts-ignore
 // import apolloClient from '../apollo-client';
@@ -19,7 +18,7 @@ type PropsType = {
 export default function Home({ countries }: PropsType) {
   // eslint-disable-next-line no-unused-expressions
   countries?.length;
-  return <NewHomePage />;
+  return <HomePage />;
   // return (
   //   <>
   //     <HomePage />
@@ -40,7 +39,7 @@ export default function Home({ countries }: PropsType) {
   // );
 }
 
-export async function getStaticProps({ locale, locales }: { locale: string }) {
+export async function getStaticProps({ locale, locales }: { locale: string; locales: Array<string> }) {
   // const { data } = await apolloClient.query({
   //   query: gql`
   //     query Countries {

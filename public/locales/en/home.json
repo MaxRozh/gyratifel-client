@@ -1,1 +1,7 @@
-{}
+{
+  "title": "Create new",
+  "life": "life",
+  "desc": "You can simulate the life of a character by specifying the environments, characters around, and other factors.",
+  "start": "Start",
+  "play_btn": "Watch the video (2min)"
+}

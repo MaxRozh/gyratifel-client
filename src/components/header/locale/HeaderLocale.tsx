@@ -1,12 +1,13 @@
 /* eslint-disable */
 
-import React, { Fragment } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { Menu, Transition } from '@headlessui/react';
+import { Menu } from '@headlessui/react';
 import { i18n } from 'next-i18next';
 
 import Svg from '_ui/svg/Svg';
+import UiTransition from '_ui/transition/UiTransition';
 
 import { LOCALES_LIST } from 'constants/locales';
 
@@ -22,15 +23,7 @@ function HeaderLocale() {
           <Svg icon={`countries/${currentLocale}`} styleClassName="w-5 h-5 text-violet-200 hover:text-violet-100" />
         </Menu.Button>
       </div>
-      <Transition
-        as={Fragment}
-        enter="transition ease-out duration-100"
-        enterFrom="transform opacity-0 scale-95"
-        enterTo="transform opacity-100 scale-100"
-        leave="transition ease-in duration-75"
-        leaveFrom="transform opacity-100 scale-100"
-        leaveTo="transform opacity-0 scale-95"
-      >
+      <UiTransition>
         {/* eslint-disable-next-line max-len */}
         <Menu.Items className="absolute right-1 mt-1 origin-top-right bg-gray-800 divide-y rounded-md shadow-lg ring-1 ring-black ring-opacity-5">
           {LOCALES_LIST.map((locale) => (
@@ -43,7 +36,7 @@ function HeaderLocale() {
             </Menu.Item>
           ))}
         </Menu.Items>
-      </Transition>
+      </UiTransition>
     </Menu>
   );
 }
