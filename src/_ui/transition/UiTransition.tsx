@@ -2,10 +2,11 @@ import React, { Fragment } from 'react';
 import { Transition } from '@headlessui/react';
 
 type PropsType = {
+  isShow?: boolean; // eslint-disable-line react/require-default-props
   children: React.ReactNode;
 };
 
-const UiTransition = ({ children }: PropsType) => (
+const UiTransition = ({ isShow, children }: PropsType) => (
   <Transition
     as={Fragment}
     enter="transition ease-out duration-100"
@@ -14,6 +15,8 @@ const UiTransition = ({ children }: PropsType) => (
     leave="transition ease-in duration-75"
     leaveFrom="transform opacity-100 scale-100"
     leaveTo="transform opacity-0 scale-95"
+    appear={isShow}
+    show={isShow}
   >
     {children}
   </Transition>

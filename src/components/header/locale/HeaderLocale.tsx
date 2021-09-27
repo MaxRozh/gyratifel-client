@@ -29,7 +29,9 @@ function HeaderLocale() {
           {LOCALES_LIST.map((locale) => (
             <Menu.Item key={locale}>
               <Link href={`/${locale}${pathname}`} locale={false}>
-                <a className={`${currentLocale === locale ? 'bg-white' : ''} flex items-center px-2 py-2 hover:bg-white`}>
+                <a
+                  className={`${currentLocale === locale ? 'bg-white' : ''} flex items-center px-2 py-2 hover:bg-white`}
+                >
                   <Svg icon={`countries/${locale}`} styleClassName="w-5 h-5" />
                 </a>
               </Link>

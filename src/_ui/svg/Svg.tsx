@@ -7,7 +7,8 @@ type PropsType = {
 };
 
 // eslint-disable-next-line no-undef
-function Svg({ styleClassName, icon }: PropsType): JSX.Element {
+function Svg({ styleClassName, icon }: PropsType): JSX.Element | null {
+  if (!icon) return null;
   const Comp = dynamic(() => import(`../../../public/svg/${icon}.svg`));
   // @ts-ignore
   return <Comp className={styleClassName} />;
