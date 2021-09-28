@@ -9,11 +9,11 @@ import { i18n } from 'next-i18next';
 import Svg from '_ui/svg/Svg';
 import UiTransition from '_ui/transition/UiTransition';
 
-import { LOCALES_LIST } from 'constants/locales';
+import { LOCALES_LIST, DEFAULT_LOCALE } from 'constants/locales';
 
 function HeaderLocale() {
   const { pathname } = useRouter();
-  const currentLocale = i18n?.language;
+  const currentLocale = i18n?.language || DEFAULT_LOCALE;
 
   return (
     <Menu as="div" className="relative inline-block text-left">

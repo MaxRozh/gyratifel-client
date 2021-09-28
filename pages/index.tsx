@@ -2,7 +2,7 @@ import React from 'react';
 // import { gql } from '@apollo/client';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
-import HomePage from 'containers/home/HomePage';
+import HomeBlock from 'components/_block/home/HomeBlock';
 
 // @ts-ignore
 // import apolloClient from '../apollo-client';
@@ -18,7 +18,7 @@ type PropsType = {
 export default function Home({ countries }: PropsType) {
   // eslint-disable-next-line no-unused-expressions
   countries?.length;
-  return <HomePage />;
+  return <HomeBlock />;
   // return (
   //   <>
   //     <HomePage />

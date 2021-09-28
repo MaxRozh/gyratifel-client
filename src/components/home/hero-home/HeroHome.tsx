@@ -1,12 +1,14 @@
 import React from 'react';
-import { useTranslation } from 'next-i18next';
 
 // import Modal from 'components/modal/Modal';
 import Svg from '_ui/svg/Svg';
 
-function HeroHome() {
+type PropsType = {
+  t: Function;
+};
+
+function HeroHome({ t }: PropsType) {
   // const [videoModalOpen, setVideoModalOpen] = useState(false);
-  const { t } = useTranslation('home');
 
   return (
     <section className="relative">

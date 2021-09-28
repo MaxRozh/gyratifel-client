@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Tab } from '@headlessui/react';
 import classNames from 'classnames';
-import { useTranslation } from 'next-i18next';
 
 import UiTransition from '_ui/transition/UiTransition';
 import Svg from '_ui/svg/Svg';
@@ -39,9 +38,12 @@ const getClassNamesForTabs = (isSelected: boolean) =>
     isSelected ? 'bg-gray-200 border-transparent' : 'bg-white shadow-md border-gray-200 hover:shadow-lg'
   );
 
-function Features() {
+type PropsType = {
+  t: Function;
+};
+
+function Features({ t }: PropsType) {
   const [currentTabIndex, setCurrentTabIndex] = useState(0);
-  const { t } = useTranslation('home');
 
   return (
     <section className="relative">

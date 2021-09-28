@@ -19,5 +19,11 @@
       "title": "Interact with others",
       "desc": "You can play with friends or meet someone"
     }
+  },
+  "subscribe": {
+    "title": "Subscribe on updates",
+    "desc": "We will send you news about new updates or news about new features of the application",
+    "btn": "Subscribe",
+    "placeholder": "Your email"
   }
 }
