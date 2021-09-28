@@ -2,7 +2,6 @@
   "compilerOptions": {
     "module": "esnext",
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
     "sourceMap": true,
     "allowJs": true,
     "isolatedModules": true,
@@ -21,7 +20,8 @@
     "resolveJsonModule": true,
     "strict": false,
     "forceConsistentCasingInFileNames": true,
-    "noEmit": true
+    "noEmit": true,
+    "lib": ["dom", "dom.iterable", "esnext"]
   },
   "include": [
     "next-env.d.ts",
