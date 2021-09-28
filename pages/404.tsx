@@ -1,8 +1,17 @@
 import React from 'react';
 import Error from 'next/error';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
-function Custom404() {
+export default function Custom404() {
   return <Error statusCode={404} />;
 }
 
-export default Custom404;
+export async function getStaticProps({ locale, locales }: { locale: string; locales: Array<string> }) {
+  return {
+    props: {
+      locales,
+      locale,
+      ...(await serverSideTranslations(locale, ['common']))
+    }
+  };
+}

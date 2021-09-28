@@ -1,0 +1,9 @@
+{
+  "reset": {
+    "title": "Reset the password",
+    "desc": "Enter the email address you used when you signed up for your account, and we’ll email you a link to reset reset your password.",
+    "email": "Email",
+    "placeholder": "Enter your email",
+    "send": "Send reset link"
+  }
+}
