@@ -1,4 +1,13 @@
 {
+  "welcome": "Welcome back",
+  "newly": "New on Gyratifel?",
+  "sign_in": "Sign in",
+  "sign_up": "Sign up",
+  "forgot": "Forgot your password?",
+  "or_login": "Or login with",
+  "remember": "Remember this device",
+  "accept": "By continuing you accept our",
+  "and": "and",
   "reset": {
     "title": "Reset the password",
     "desc": "Enter the email address you used when you signed up for your account, and we’ll email you a link to reset reset your password.",
