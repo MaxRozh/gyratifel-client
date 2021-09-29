@@ -49,13 +49,13 @@ function NewsSubscription({ t }: PropsType) {
                       placeholder={t('subscribe.placeholder')}
                       aria-label={t('subscribe.placeholder')}
                     />
-                    <a
+                    <button
+                      type="button"
                       // eslint-disable-next-line max-len
                       className="btn px-4 py-4 bg-gradient-to-r from-blue-400 to-blue-800 hover:from-blue-800 text-white font-medium rounded-md"
-                      href="#0"
                     >
                       {t('subscribe.btn')}
-                    </a>
+                    </button>
                   </div>
                   {/* <p className="text-sm text-gray-400 mt-3">Thanks for subscribing!</p> */}
                 </form>

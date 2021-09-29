@@ -3,7 +3,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 import ResetPassword from 'components/reset-password/ResetPassword';
 
-export default function Home() {
+export default function ResetPasswordPage() {
   return <ResetPassword />;
 }
 

@@ -45,7 +45,6 @@ function UiInput({
           placeholder={placeholder}
           defaultValue={defaultValue}
           onChange={(e) => onChange?.(e.currentTarget.value)}
-          // {...newProps}
         />
         {/*{description && <span className="mt-2 text-gray-600 text-xs">{description}</span>}*/}
         {/* eslint-disable-next-line max-len */}

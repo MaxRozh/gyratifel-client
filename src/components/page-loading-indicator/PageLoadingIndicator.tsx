@@ -2,7 +2,9 @@
 
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-// import LinearProgress from '@material-ui/core/LinearProgress';
+import classNames from 'classnames';
+
+import style from './ProgressBar.module.css';
 
 const PageLoadingIndicator = () => {
   const router = useRouter();
@@ -26,7 +28,13 @@ const PageLoadingIndicator = () => {
 
   if (!isLoad) return null;
 
-  return <span>Progress bar</span>;
+  return (
+    <div className="w-full overflow-hidden fixed top-12">
+      <div
+        className={classNames('w-1/2 inline-block relative fluentProgressBar-waiting', style.fluentProgressBarNormal)}
+      />
+    </div>
+  );
 };
 
 export default PageLoadingIndicator;

@@ -3,15 +3,15 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 import SignInBlock from 'components/_block/sign-in/SignInBlock';
 
-export default function Home() {
+export default function SignInPage() {
   return <SignInBlock />;
 }
 
-export async function getServerSideProps({ locale }: { locale: string }) {
+export async function getServerSideProps({ locale, locales }: { locale: string; locales: Array<string> }) {
   return {
     props: {
       locale,
-      // countries: data.countries.slice(0, 10),
+      locales,
       ...(await serverSideTranslations(locale, ['sign-in', 'common']))
     }
   };

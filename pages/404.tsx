@@ -11,7 +11,7 @@ export async function getStaticProps({ locale, locales }: { locale: string; loca
     props: {
       locales,
       locale,
-      ...(await serverSideTranslations(locale, ['common']))
+      ...(await serverSideTranslations(locale, ['error']))
     }
   };
 }

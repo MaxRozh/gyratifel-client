@@ -15,28 +15,10 @@ type PropsType = {
   }>;
 };
 
-export default function Home({ countries }: PropsType) {
+export default function HomePage({ countries }: PropsType) {
   // eslint-disable-next-line no-unused-expressions
   countries?.length;
   return <HomeBlock />;
-  // return (
-  //   <>
-  //     <HomePage />
-  //     <h1>Home</h1>
-  //     <p>Get started</p>
-  //     <p>Eff</p>
-  //     <div>
-  //       {countries.map((country) => (
-  //         <div key={country.code}>
-  //           <h3>{country.name}</h3>
-  //           <p>
-  //             {country.code} - {country.emoji}
-  //           </p>
-  //         </div>
-  //       ))}
-  //     </div>
-  //   </>
-  // );
 }
 
 export async function getStaticProps({ locale, locales }: { locale: string; locales: Array<string> }) {

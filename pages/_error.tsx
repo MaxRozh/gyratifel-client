@@ -13,6 +13,7 @@ type GetInitialPropsType = {
   err: any;
   asPath: string;
   locale: string;
+  locales: Array<string>;
 };
 
 function Error({ statusCode, hasGetInitialPropsRun, err }: PropsType) {
@@ -23,7 +24,7 @@ function Error({ statusCode, hasGetInitialPropsRun, err }: PropsType) {
   return <NextErrorComponent statusCode={statusCode} />;
 }
 
-Error.getInitialProps = async ({ res, err, asPath, locale }: GetInitialPropsType) => {
+Error.getInitialProps = async ({ res, err, asPath, locale, locales }: GetInitialPropsType) => {
   // @ts-ignore
   const errorInitialProps: any = await NextErrorComponent.getInitialProps({ res, err });
 
@@ -35,6 +36,7 @@ Error.getInitialProps = async ({ res, err, asPath, locale }: GetInitialPropsType
     ...errorInitialProps,
     hasGetInitialPropsRun: true,
     locale,
+    locales,
     ...(await serverSideTranslations(locale, ['error']))
   };
 };

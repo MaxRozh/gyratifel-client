@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 type PropsType = {
   isSignIn: boolean;
@@ -14,9 +15,9 @@ function LoginForm({ isSignIn, children, t }: PropsType) {
           <h2 className="text-3xl font-bold text-gray-800">{t('welcome')}</h2>
           <p className="mt-3 text-gray-800">
             {t(isSignIn ? 'newly' : 'already_have')}{' '}
-            <a href="#" className="text-blue-400">
-              {t(isSignIn ? 'sign_up' : 'sign_in')}
-            </a>
+            <Link href={isSignIn ? '/sign-up' : 'sign-in'}>
+              <a className="text-blue-400">{t(isSignIn ? 'sign_up' : 'sign_in')}</a>
+            </Link>
           </p>
         </div>
         <div className="mt-12">
@@ -32,9 +33,9 @@ function LoginForm({ isSignIn, children, t }: PropsType) {
           </div>
           {isSignIn && (
             <div className="text-right">
-              <a href="#" className="text-blue-400">
-                {t('forgot')}
-              </a>
+              <Link href="/reset-password">
+                <a className="text-blue-400">{t('forgot')}</a>
+              </Link>
             </div>
           )}
           <div className="mt-4">
@@ -75,13 +76,13 @@ function LoginForm({ isSignIn, children, t }: PropsType) {
           </div>
           <p className="text-sm mt-6 text-left">
             {t(isSignIn ? 'accept' : 'accept_create')}{' '}
-            <a href="#" className="text-blue-400">
-              {t('common:term_of_use')}
-            </a>{' '}
+            <Link href="/term-of-use">
+              <a className="text-blue-400">{t('common:term_of_use')}</a>
+            </Link>{' '}
             {t('and')}{' '}
-            <a href="#" className="text-blue-400">
-              {t('common:privacy')}
-            </a>
+            <Link href="/privacy">
+              <a className="text-blue-400">{t('common:privacy')}</a>
+            </Link>
             .
           </p>
         </div>

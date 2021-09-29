@@ -52,7 +52,7 @@ function HeroHome({ t }: PropsType) {
                   <a
                     // eslint-disable-next-line max-len
                     className="px-12 py-4 bg-gradient-to-r from-blue-400 to-blue-800 hover:from-blue-800 tracking-wide text-white font-medium rounded-md focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-80"
-                    href="#0"
+                    href="/"
                   >
                     {t('start')}
                   </a>
@@ -100,8 +100,8 @@ function HeroHome({ t }: PropsType) {
                   </g>
                 </svg>
               </div>
-              {/* eslint-disable-next-line react/button-has-type */}
               <button
+                type="button"
                 className="absolute top-full flex items-center transform -translate-y-1/2 bg-white rounded-full font-medium group p-4 shadow-lg" // eslint-disable-line max-len
                 onClick={(e) => {
                   e.preventDefault();

@@ -15,7 +15,6 @@ class MyDocument extends Document {
           <meta content="ie=edge" httpEquiv="x-ua-compatible" />
           {/*<meta name="theme-color" content={theme.palette.primary.main} />*/}
           {/*<Favicons />*/}
-          {/*<FontsInclude />*/}
         </Head>
         <body>
           <Main />

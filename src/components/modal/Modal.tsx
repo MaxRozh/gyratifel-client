@@ -1,8 +1,16 @@
 import React, { useEffect, useRef } from 'react';
-import Transition from 'components/transition/Transition';
 
-// @ts-ignore
-function Modal({ children, id, ariaLabel, show, handleClose }) {
+import UiTransition from '_ui/transition/UiTransition';
+
+type PropsType = {
+  id: string;
+  ariaLabel: string;
+  show: boolean;
+  handleClose: Function;
+  children: React.ReactNode;
+};
+
+function Modal({ children, id, ariaLabel, show, handleClose }: PropsType) {
   const modalContent = useRef(null);
 
   // close the modal on click outside
@@ -22,7 +30,7 @@ function Modal({ children, id, ariaLabel, show, handleClose }) {
     // @ts-ignore
     const keyHandler = ({ keyCode }) => {
       if (keyCode !== 27) return;
-      handleClose();
+      handleClose(id); // delete - id
     };
     document.addEventListener('keydown', keyHandler);
 
@@ -31,38 +39,37 @@ function Modal({ children, id, ariaLabel, show, handleClose }) {
 
   return (
     <>
-      {/* Modal backdrop */}
-      <Transition
-        className="fixed inset-0 z-50 bg-white bg-opacity-75 transition-opacity blur"
-        show={show}
-        enter="transition ease-out duration-200"
-        enterStart="opacity-0"
-        enterEnd="opacity-100"
-        leave="transition ease-out duration-100"
-        leaveStart="opacity-100"
-        leaveEnd="opacity-0"
+      <UiTransition
+        // className="fixed inset-0 z-50 bg-white bg-opacity-75 transition-opacity blur"
+        // show={show}
+        // enter="transition ease-out duration-200"
+        // enterStart="opacity-0"
+        // enterEnd="opacity-100"
+        // leave="transition ease-out duration-100"
+        // leaveStart="opacity-100"
+        // leaveEnd="opacity-0"
         aria-hidden="true"
-      />
-
-      {/* Modal dialog */}
-      <Transition
-        id={id}
-        className="fixed inset-0 z-50 overflow-hidden flex items-center justify-center transform px-4 sm:px-6"
-        role="dialog"
+      >
+        empty
+      </UiTransition>
+      <UiTransition
+        // id={id}
+        // className="fixed inset-0 z-50 overflow-hidden flex items-center justify-center transform px-4 sm:px-6"
+        // role="dialog"
         aria-modal="true"
         aria-labelledby={ariaLabel}
-        show={show}
-        enter="transition ease-out duration-200"
-        enterStart="opacity-0 scale-95"
-        enterEnd="opacity-100 scale-100"
-        leave="transition ease-out duration-200"
-        leaveStart="opacity-100 scale-100"
-        leaveEnd="opacity-0 scale-95"
+        // show={show}
+        // enter="transition ease-out duration-200"
+        // enterStart="opacity-0 scale-95"
+        // enterEnd="opacity-100 scale-100"
+        // leave="transition ease-out duration-200"
+        // leaveStart="opacity-100 scale-100"
+        // leaveEnd="opacity-0 scale-95"
       >
         <div className="bg-white overflow-auto max-w-6xl w-full max-h-full" ref={modalContent}>
           {children}
         </div>
-      </Transition>
+      </UiTransition>
     </>
   );
 }

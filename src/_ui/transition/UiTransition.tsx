@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { Transition } from '@headlessui/react';
 
 type PropsType = {
-  isShow?: boolean; // eslint-disable-line react/require-default-props
+  isShow?: boolean;
   children: React.ReactNode;
 };
 
