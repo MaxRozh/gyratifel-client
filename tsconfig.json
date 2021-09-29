@@ -1,10 +1,11 @@
 {
   "compilerOptions": {
-    "outDir": "./built/",
-    "module": "commonjs",
-    "target": "es6",
+    "module": "esnext",
+    "target": "es5",
     "sourceMap": true,
-    "jsx": "react",
+    "allowJs": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
     "moduleResolution": "node",
     "rootDir": "src",
     "noImplicitReturns": true,
@@ -13,14 +14,30 @@
     "strictNullChecks": true,
     "noUnusedLocals": true,
     "allowSyntheticDefaultImports": true,
-    "baseUrl": ".",
-    "esModuleInterop": true
+    "baseUrl": "src",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "lib": ["dom", "dom.iterable", "esnext"]
   },
   "include": [
-    "src/**/*"
+    "next-env.d.ts",
+    "graphql.d.ts",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.js",
+    "pages/**/*",
+    "@types"
   ],
   "exclude": [
     "node_modules",
-    "**/*.spec.ts"
+    "coverage",
+    "**/*.spec.ts",
+    ".next",
+    "_next",
+    "out"
   ]
 }

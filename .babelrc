@@ -1,5 +1,6 @@
 {
   "presets": [
+    "next/babel",
     "@babel/preset-env",
     "@babel/preset-react",
     "@babel/preset-typescript"
@@ -10,8 +11,7 @@
     "@babel/plugin-proposal-class-properties",
     "@babel/plugin-transform-async-to-generator",
     "@babel/plugin-syntax-dynamic-import",
-    "@babel/plugin-proposal-do-expressions",
-    "react-hot-loader/babel"
+    "@babel/plugin-proposal-do-expressions"
   ],
   "env": {
     "production": {

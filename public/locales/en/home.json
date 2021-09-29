@@ -1,0 +1,29 @@
+{
+  "title": "Create new",
+  "life": "life",
+  "desc": "You can simulate the life of a character by specifying the environments, characters around, and other factors.",
+  "start": "Start",
+  "play_btn": "Watch the video (2min)",
+  "explore": "Explore the possibilities",
+  "explore_desc": "Immerse yourself in the world created by you and others. Here, as well as in life, you could have many factors that don't depend on you. But they can influence you.",
+  "tabs": {
+    "1": {
+      "title": "Create one or more characters",
+      "desc": "You have the opportunity to select parameters from the growth of the character to the environment and parents"
+    },
+    "2": {
+      "title": "Make him a cashier or a successful entrepreneur",
+      "desc": "Learn to motivate the character, give him the right environment - and you will have a happy character"
+    },
+    "3": {
+      "title": "Interact with others",
+      "desc": "You can play with friends or meet someone"
+    }
+  },
+  "subscribe": {
+    "title": "Subscribe on updates",
+    "desc": "We will send you news about new updates or news about new features of the application",
+    "btn": "Subscribe",
+    "placeholder": "Your email"
+  }
+}
