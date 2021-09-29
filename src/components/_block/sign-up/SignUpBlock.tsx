@@ -8,7 +8,10 @@ function SignInBlock() {
   const { t } = useTranslation('sign-in');
 
   return (
-    <LoginForm isSignIn t={t}>
+    <LoginForm isSignIn={false} t={t}>
+      <div className="my-6">
+        <UiInput type="text" name="name" placeholder={t('name')} />
+      </div>
       <div className="my-6">
         <UiInput type="email" name="email" placeholder={t('email_placeholder')} />
       </div>

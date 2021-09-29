@@ -1,7 +1,6 @@
 import React from 'react';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
-// import SignInPage from 'containers/sign-in/SignInPage';
 import SignInBlock from 'components/_block/sign-in/SignInBlock';
 
 export default function Home() {

@@ -17,7 +17,7 @@ function Footer() {
   const { t } = useTranslation();
 
   return (
-    <footer className="px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 bg-gray-800">
+    <footer className="px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:w-full md:px-24 lg:px-32 bg-gray-800">
       <div className="grid gap-10 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
         <div className="sm:col-span-2">
           <a href="/" aria-label="Go home" title="Company" className="inline-flex items-center">
