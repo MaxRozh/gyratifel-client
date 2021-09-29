@@ -33,7 +33,6 @@
     "@types"
   ],
   "exclude": [
-    "node_modules",
     "coverage",
     "**/*.spec.ts",
     ".next",

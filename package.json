@@ -139,7 +139,7 @@
     "node": ">=12.22.4"
   },
   "lint-staged": {
-    "src/**/*.{js,jsx}": [
+    "src/**/*.{ts,tsx}": [
       "yarn prettier --write 'src/**/*.{ts,tsx}'",
       "yarn lint:js",
       "git add"
