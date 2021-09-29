@@ -1,7 +1,6 @@
 import React from 'react';
 import NextErrorComponent from 'next/error';
 import * as Sentry from '@sentry/nextjs';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 type PropsType = {
   statusCode: number;
@@ -35,9 +34,7 @@ Error.getInitialProps = async ({ res, err, asPath, locale, locales }: GetInitial
   return {
     ...errorInitialProps,
     hasGetInitialPropsRun: true,
-    locale,
-    locales,
-    ...(await serverSideTranslations(locale, ['error']))
+    locale
   };
 };
 
