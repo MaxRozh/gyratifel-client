@@ -65,4 +65,4 @@ const SentryWebpackPluginOptions = {
   silent: true
 };
 
-module.exports = withSentryConfig(withPWA(withBundleAnalyzer(nextConfig)), SentryWebpackPluginOptions);
+module.exports = withPWA(withBundleAnalyzer(nextConfig));

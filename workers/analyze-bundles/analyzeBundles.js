@@ -50,7 +50,7 @@ colorfulConsole({ message: '[2/4] Formatting for view...' });
 // Produce a Markdown table with each page & its size
 const sizesForView = pageSizesArr
   .map(({ pagePath, size }) => {
-    const previousPageSize = previousSizeArr.find((item) => item.pagePath === pagePath);
+    const previousPageSize = previousSizeArr.find((item) => item.pagePath === pagePath) || { size: 0 };
     const currentSize = formatBytes(size);
     const previousSize = formatBytes(previousPageSize.size);
     const diffSize = getDiff(size, previousPageSize.size);

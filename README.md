@@ -1,5 +1,5 @@
 # Gyratifel
 
-_Bundle size diff _[`+0.00%`]__
+_Bundle size diff _[`+200.00%`]__
 
-_Version _*`1.3.3`*__
+_Version _*`0.5.0`*__
